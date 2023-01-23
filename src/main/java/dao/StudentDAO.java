@@ -58,4 +58,23 @@ public class StudentDAO {
 		}
 		return result;
 	}
+	public static int DeleteConnection(String name) {
+		String sql ="delete from student_account where name= ?";
+		int result = 0;
+		try (
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setString(1, name);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		} finally {
+			System.out.println(result + "件削除しました。");
+			
+		}
+		return result;
+	}
 }
