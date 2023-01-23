@@ -5,7 +5,10 @@ import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dto.Tosho;
 import util.GenerateHashedPw;
@@ -74,6 +77,42 @@ public class StudentDAO {
 		} finally {
 			System.out.println(result + "件削除しました。");
 			
+		}
+		return result;
+	}
+	
+	
+	public static List<Tosho> selectAllTosho() {
+		
+		// 返却用変数
+		List<Tosho> result = new ArrayList<>();
+
+		String sql = "SELECT * FROM student_account";
+		
+		try (
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			try (ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {
+					
+					int id = rs.getInt("id");
+					String name = rs.getString("name");
+					String mail = rs.getString("mail");
+					String subject = rs.getString("subject");
+					String salt = rs.getString("salt");
+
+					Tosho tosho = new Tosho(id, name, mail, subject, salt, null, null);
+					
+					result.add(tosho);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		} finally {
+			System.out.println(result + "件更新しました。");
 		}
 		return result;
 	}
