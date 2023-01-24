@@ -54,7 +54,7 @@ public class StudentDAO {
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		} finally {
-			System.out.println(result + "件更新しました。");
+			System.out.println(result + "件更新しました");
 		}
 		return result;
 	}
