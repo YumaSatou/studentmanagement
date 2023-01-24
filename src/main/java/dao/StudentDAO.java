@@ -58,14 +58,14 @@ public class StudentDAO {
 		}
 		return result;
 	}
-	public static int DeleteConnection(String name) {
-		String sql ="delete from student_account where name= ?";
+	public static int DeleteConnection(String mail) {
+		String sql ="delete from student_account where mail= ?";
 		int result = 0;
 		try (
 				Connection con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				){
-			pstmt.setString(1, name);
+			pstmt.setString(1, mail);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
