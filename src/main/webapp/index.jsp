@@ -10,5 +10,6 @@
 <h1>生徒管理システム</h1>
 <a href="registerservlet">登録はこちら</a>
 <a href="sakujyo">アカウント削除の方はこちら</a>
+<a href="LoginmvServlet">ログインはこちら</a>
 </body>
 </html>

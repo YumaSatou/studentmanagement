@@ -117,4 +117,59 @@ public class StudentDAO {
 		}
 		return result;
 	}
+	// メールアドレスを元にソルトを取得
+	public static String getSalt(String mail) {
+		String sql = "SELECT salt FROM student_account WHERE mail = ?";
+		
+		try (
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setString(1, mail);
+
+			try (ResultSet rs = pstmt.executeQuery()){
+				
+				if(rs.next()) {
+					String salt = rs.getString("salt");
+					return salt;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	// ログイン処理
+	public static Tosho login(String mail, String hashedPw) {
+		String sql = "SELECT * FROM student_account WHERE mail = ? AND password = ?";
+		
+		try (
+				Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			pstmt.setString(1, mail);
+			pstmt.setString(2, hashedPw);
+
+			try (ResultSet rs = pstmt.executeQuery()){
+				
+				if(rs.next()) {
+					int id = rs.getInt("id");
+					String name = rs.getString("name");
+					String subject = rs.getString("subject");
+					String salt = rs.getString("salt");
+
+					
+					return new Tosho(id, name, mail,subject, salt, null, null) ;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
