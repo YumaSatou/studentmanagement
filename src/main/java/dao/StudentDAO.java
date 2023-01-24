@@ -29,7 +29,7 @@ public class StudentDAO {
 	}
 	
 	public static int registerAccount(Tosho student_account) {
-		String sql = "INSERT INTO student_account VALUES(default, ?, ?, ?, ?, current_timestamp)";
+		String sql = "INSERT INTO student_account VALUES(default, ?, ?, ?, ?, ?, current_timestamp)";
 		int result = 0;
 		
 		// ランダムなソルトの取得(今回は32桁で実装)
