@@ -17,7 +17,6 @@
 		request.setCharacterEncoding("UTF-8");
 		if(request.getParameter("error") != null){	
 	%>
-		<h1><p><p style="color:red">ログインに失敗しました。</p></h1>
 	<form action="LoginServlet" method="post">
 		<h1><p>【ユーザーログイン】</p></h1><br>
 		<p>メールアドレス<br><input type="text" name="mail" value="<%=request.getParameter("mail") %>"></p><br>
@@ -36,5 +35,6 @@
 	<%
 		}
 	%>
+	<a href="index.jsp">戻る</a>
 </body>
 </html>
