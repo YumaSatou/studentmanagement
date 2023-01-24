@@ -19,5 +19,6 @@
 	%>
 	
 	<p>ようこそ<%=ac.getName() %>さん</p>
+	<a href="LogoutServlet">ログアウト</a>
 </body>
 </html>

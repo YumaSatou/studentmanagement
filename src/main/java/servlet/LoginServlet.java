@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 		
 		// 取得したソルトがnullの場合は対象のユーザがいないので、Errorでログイン画面に戻す
 		if(salt == null) {
-			String view = "./?error=1";
+			String view = "LoginfailServlet";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 			return;
@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 		
 		// 一致するユーザがいなければ、ログイン失敗
 		if(student_account == null) {
-			String view = "./?error=1";
+			String view = "LoginfailServlet";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);
 		} else {
