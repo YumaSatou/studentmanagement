@@ -33,6 +33,7 @@ public class StudentDAO {
 		int result = 0;
 		
 		// ランダムなソルトの取得(今回は32桁で実装)
+		//aaaaa
 		String salt = GenerateSalt.getSalt(32);
 		
 		// 取得したソルトを使って平文PWをハッシュ
