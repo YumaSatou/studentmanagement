@@ -11,7 +11,7 @@
 <form action="sakujyo2" method="post" style="text-align:center">
 <font size="10"color="black" >
 
-生徒名：<input type="text" size="50"  name="name"><br>
+メールアドレスを入れてください：<input type="text" size="50"  name="mail"><br>
 <input type="submit" value="削除">
 </font>
 </form>

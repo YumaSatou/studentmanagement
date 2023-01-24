@@ -30,9 +30,9 @@ public class sakujyo2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("name");
+		String mail = request.getParameter("mail");
 		
-		int result =StudentDAO.DeleteConnection(name);
+		int result =StudentDAO.DeleteConnection(mail);
 	
 		if(result==1) {
 			String view = "WEB-INF/view/SakujyoSuccess.jsp";
