@@ -21,7 +21,7 @@
 	<p>ようこそ<%=ac.getName() %>さん</p>
 	<a href="LogoutServlet">ログアウト</a>
 
-	<li href="ListStudentServlet">生徒一覧</a></li>
+	<a href="ListStudentServlet">生徒一覧</a>
 
 </body>
 </html>
