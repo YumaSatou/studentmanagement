@@ -48,6 +48,8 @@ public class StudentDAO {
 			pstmt.setString(3, student_account.getSubject());
 			pstmt.setString(4, salt);
 			pstmt.setString(5, hashedPw);
+			
+			
 
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
